@@ -126,6 +126,7 @@ const CreateNewProvider = memo<CreateNewProviderProps>(({ onClose, open }) => {
           title: t('createNewAiProvider.configTitle'),
         },
       ]}
+      maxHeight={'90%'}
       onCancel={onClose}
       onFinish={onFinish}
       open={open}

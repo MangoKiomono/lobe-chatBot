@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { aiProviderSelectors } from '@/store/aiInfra';
 import { useAiInfraStore } from '@/store/aiInfra/store';
 
@@ -28,9 +29,10 @@ const ProviderList = () => {
     isEqual,
   );
 
+  const isMobile = useIsMobile();
   return (
     <Flexbox gap={4} padding={'0 12px'} style={{ marginBottom: 12 }}>
-      <All />
+      {!isMobile && <All />}
       <Flexbox
         align={'center'}
         horizontal

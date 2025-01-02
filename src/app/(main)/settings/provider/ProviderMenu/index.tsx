@@ -2,7 +2,7 @@
 
 import { SearchBar } from '@lobehub/ui';
 import { useTheme } from 'antd-style';
-import { PropsWithChildren } from 'react';
+import { ReactNode, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
@@ -13,7 +13,11 @@ import ProviderList from './List';
 import SearchResult from './SearchResult';
 import SkeletonList from './SkeletonList';
 
-const Layout = ({ children }: PropsWithChildren) => {
+interface ProviderMenuProps {
+  children: ReactNode;
+  mobile?: boolean;
+}
+const Layout = memo(({ children, mobile }: ProviderMenuProps) => {
   const { t } = useTranslation('modelProvider');
   const theme = useTheme();
 
@@ -25,8 +29,9 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   useFetchAiProviderList();
 
+  const width = mobile ? undefined : 260;
   return (
-    <Flexbox style={{ minWidth: 260, overflow: 'scroll' }} width={260}>
+    <Flexbox style={{ minWidth: width, overflow: 'scroll' }} width={width}>
       <Flexbox
         gap={8}
         horizontal
@@ -39,6 +44,7 @@ const Layout = ({ children }: PropsWithChildren) => {
           allowClear
           onChange={(e) => useAiInfraStore.setState({ providerSearchKeyword: e.target.value })}
           placeholder={t('menu.searchProviders')}
+          style={{ width: '100%' }}
           type={'block'}
           value={providerSearchKeyword}
         />
@@ -47,7 +53,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       {children}
     </Flexbox>
   );
-};
+});
 
 const Content = () => {
   const [initAiProviderList, providerSearchKeyword] = useAiInfraStore((s) => [
@@ -65,8 +71,8 @@ const Content = () => {
   return <ProviderList />;
 };
 
-const ProviderMenu = () => (
-  <Layout>
+const ProviderMenu = ({ mobile }: { mobile?: boolean }) => (
+  <Layout mobile={mobile}>
     <Content />
   </Layout>
 );
