@@ -3,6 +3,7 @@
 import { ReactNode, Suspense, memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { useAiInfraStore } from '@/store/aiInfra';
 
 import DisabledModels from './DisabledModels';
@@ -37,13 +38,17 @@ interface ModelListProps {
   showAzureDeployName?: boolean;
 }
 
-const ModelList = memo<ModelListProps>(({ id }) => (
-  <Flexbox gap={16}>
-    <ModelTitle provider={id} />
-    <Suspense fallback={<SkeletonList />}>
-      <Content id={id} />
-    </Suspense>
-  </Flexbox>
-));
+const ModelList = memo<ModelListProps>(({ id }) => {
+  const mobile = useIsMobile();
+
+  return (
+    <Flexbox gap={16} paddingInline={mobile ? 12 : 0}>
+      <ModelTitle provider={id} />
+      <Suspense fallback={<SkeletonList />}>
+        <Content id={id} />
+      </Suspense>
+    </Flexbox>
+  );
+});
 
 export default ModelList;

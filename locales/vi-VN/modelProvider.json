@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Chưa kích hoạt",
-    "enabled": "Đã kích hoạt",
-    "enabledActions": {
-      "disableAll": "Tất cả đều bị vô hiệu hóa",
-      "enableAll": "Tất cả đều được kích hoạt",
-      "sort": "Sắp xếp mô hình tùy chỉnh"
-    },
-    "enabledEmpty": "Hiện không có mô hình nào được kích hoạt, xin hãy kích hoạt mô hình bạn yêu thích từ danh sách bên dưới~",
-    "search": "Tìm kiếm mô hình...",
-    "searchResult": "Tìm thấy {{count}} mô hình"
+    "title": {
+      "disabled": "Nhà cung cấp chưa được kích hoạt",
+      "enabled": "Nhà cung cấp đã được kích hoạt"
+    }
   },
   "menu": {
     "addCustomProvider": "Thêm nhà cung cấp tùy chỉnh",
@@ -264,10 +258,39 @@
           "extra": "Cấu hình này chỉ mở khả năng tải lên hình ảnh trong ứng dụng, việc hỗ trợ nhận diện hoàn toàn phụ thuộc vào mô hình, xin hãy tự kiểm tra khả năng nhận diện hình ảnh của mô hình này.",
           "title": "Hỗ trợ nhận diện hình ảnh"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Hình ảnh",
+        "inputCharts": "${{amount}}/Ký tự M",
+        "inputMinutes": "${{amount}}/Phút",
+        "inputTokens": "Nhập ${{amount}}/M",
+        "outputTokens": "Xuất ${{amount}}/M"
+      },
+      "releasedAt": "Phát hành vào {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Chưa được kích hoạt",
+      "enabled": "Đã được kích hoạt",
+      "enabledActions": {
+        "disableAll": "Vô hiệu hóa tất cả",
+        "enableAll": "Kích hoạt tất cả",
+        "sort": "Sắp xếp mô hình tùy chỉnh"
+      },
+      "enabledEmpty": "Chưa có mô hình nào được kích hoạt, hãy kích hoạt mô hình bạn yêu thích từ danh sách bên dưới nhé~",
+      "fetcher": {
+        "clear": "Xóa mô hình đã lấy",
+        "fetch": "Lấy danh sách mô hình",
+        "fetching": "Đang lấy danh sách mô hình...",
+        "latestTime": "Thời gian cập nhật lần cuối: {{time}}",
+        "noLatestTime": "Chưa lấy danh sách"
+      },
+      "search": "Tìm kiếm mô hình...",
+      "searchResult": "Tìm thấy {{count}} mô hình",
+      "title": "Danh sách mô hình",
+      "total": "Có tổng cộng {{count}} mô hình khả dụng"
+    },
+    "searchNotFound": "Không tìm thấy kết quả tìm kiếm"
   },
-  "searchNotFound": "Không tìm thấy kết quả tìm kiếm",
   "sortModal": {
     "success": "Cập nhật sắp xếp thành công",
     "title": "Sắp xếp tùy chỉnh",

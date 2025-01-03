@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "No habilitado",
-    "enabled": "Habilitado",
-    "enabledActions": {
-      "disableAll": "Deshabilitar todo",
-      "enableAll": "Habilitar todo",
-      "sort": "Ordenar modelos personalizados"
-    },
-    "enabledEmpty": "No hay modelos habilitados, por favor habilita los modelos que te gusten de la lista a continuación~",
-    "search": "Buscar modelos...",
-    "searchResult": "Se encontraron {{count}} modelos"
+    "title": {
+      "disabled": "Proveedor no habilitado",
+      "enabled": "Proveedor habilitado"
+    }
   },
   "menu": {
     "addCustomProvider": "Agregar proveedor personalizado",
@@ -264,10 +258,39 @@
           "extra": "Esta configuración solo habilitará la configuración de carga de imágenes en la aplicación, si se admite el reconocimiento depende completamente del modelo en sí, prueba la disponibilidad de la capacidad de reconocimiento visual de este modelo.",
           "title": "Soporte para reconocimiento visual"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/imagen",
+        "inputCharts": "${{amount}}/M caracteres",
+        "inputMinutes": "${{amount}}/minuto",
+        "inputTokens": "Entrada ${{amount}}/M",
+        "outputTokens": "Salida ${{amount}}/M"
+      },
+      "releasedAt": "Publicado el {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "No habilitado",
+      "enabled": "Habilitado",
+      "enabledActions": {
+        "disableAll": "Deshabilitar todo",
+        "enableAll": "Habilitar todo",
+        "sort": "Ordenar modelos personalizados"
+      },
+      "enabledEmpty": "No hay modelos habilitados, por favor habilita los modelos que te gusten de la lista a continuación~",
+      "fetcher": {
+        "clear": "Eliminar modelos obtenidos",
+        "fetch": "Obtener lista de modelos",
+        "fetching": "Obteniendo lista de modelos...",
+        "latestTime": "Última actualización: {{time}}",
+        "noLatestTime": "Lista aún no obtenida"
+      },
+      "search": "Buscar modelos...",
+      "searchResult": "Se encontraron {{count}} modelos",
+      "title": "Lista de modelos",
+      "total": "Un total de {{count}} modelos disponibles"
+    },
+    "searchNotFound": "No se encontraron resultados de búsqueda"
   },
-  "searchNotFound": "No se encontraron resultados de búsqueda",
   "sortModal": {
     "success": "Orden actualizado con éxito",
     "title": "Orden personalizado",

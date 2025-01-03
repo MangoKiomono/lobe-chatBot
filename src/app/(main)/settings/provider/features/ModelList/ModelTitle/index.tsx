@@ -6,6 +6,7 @@ import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { useAiInfraStore } from '@/store/aiInfra';
 import { aiModelSelectors } from '@/store/aiInfra/selectors';
 
@@ -18,7 +19,7 @@ interface ModelFetcherProps {
 
 const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
   const theme = useTheme();
-  const { t } = useTranslation('setting');
+  const { t } = useTranslation('modelProvider');
   const [
     searchKeyword,
     totalModels,
@@ -41,24 +42,31 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
   const [clearRemoteModelsLoading, setClearRemoteModelsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+  const mobile = useIsMobile();
+
   return (
     <Flexbox
-      align={'center'}
-      horizontal
-      justify={'space-between'}
+      gap={12}
       paddingBlock={8}
-      style={{ background: theme.colorBgLayout, position: 'sticky', top: -16, zIndex: 15 }}
+      style={{
+        background: theme.colorBgLayout,
+        position: 'sticky',
+        top: mobile ? -2 : -16,
+        zIndex: 15,
+      }}
     >
       <Flexbox align={'center'} gap={0} horizontal justify={'space-between'}>
         <Flexbox align={'center'} gap={8} horizontal>
-          <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>模型列表</Typography.Text>
+          <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+            {t('providerModels.list.title')}
+          </Typography.Text>
 
           {isLoading ? (
             <Skeleton.Button active style={{ height: 22 }} />
           ) : (
             <Typography.Text style={{ fontSize: 12 }} type={'secondary'}>
               <div style={{ display: 'flex', lineHeight: '24px' }}>
-                {t('llm.modelList.total', { count: totalModels })}
+                {t('providerModels.list.total', { count: totalModels })}
                 {hasRemoteModels && (
                   <ActionIcon
                     icon={CircleX}
@@ -69,7 +77,7 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
                       setClearRemoteModelsLoading(false);
                     }}
                     size={'small'}
-                    title={t('llm.fetcher.clear')}
+                    title={t('providerModels.list.fetcher.clear')}
                   />
                 )}
               </div>
@@ -80,7 +88,7 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
           <Skeleton.Button active size={'small'} style={{ width: 120 }} />
         ) : (
           <Flexbox gap={8} horizontal>
-            {totalModels >= 30 && (
+            {!mobile && (
               <Search
                 onChange={(value) => {
                   useAiInfraStore.setState({ modelSearchKeyword: value });
@@ -103,7 +111,9 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
                 }}
                 size={'small'}
               >
-                {fetchRemoteModelsLoading ? t('llm.fetcher.fetching') : t('llm.fetcher.fetch')}
+                {fetchRemoteModelsLoading
+                  ? t('providerModels.list.fetcher.fetching')
+                  : t('providerModels.list.fetcher.fetch')}
               </Button>
               <Button
                 icon={<Icon icon={PlusIcon} />}
@@ -115,8 +125,18 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
               <CreateNewModelModal open={showModal} setOpen={setShowModal} />
             </Space.Compact>
           </Flexbox>
-        )}{' '}
+        )}
       </Flexbox>
+
+      {mobile && (
+        <Search
+          onChange={(value) => {
+            useAiInfraStore.setState({ modelSearchKeyword: value });
+          }}
+          value={searchKeyword}
+          variant={'filled'}
+        />
+      )}
     </Flexbox>
   );
 });

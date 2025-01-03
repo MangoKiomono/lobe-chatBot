@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "未使用",
-    "enabled": "使用中",
-    "enabledActions": {
-      "disableAll": "すべて無効化",
-      "enableAll": "すべて有効化",
-      "sort": "カスタムモデルのソート"
-    },
-    "enabledEmpty": "有効なモデルはありません。下のリストからお気に入りのモデルを有効にしてください~",
-    "search": "モデルを検索...",
-    "searchResult": "{{count}} 個のモデルが見つかりました"
+    "title": {
+      "disabled": "サービスプロバイダーは無効です",
+      "enabled": "サービスプロバイダーは有効です"
+    }
   },
   "menu": {
     "addCustomProvider": "カスタムサービスプロバイダーを追加",
@@ -264,10 +258,39 @@
           "extra": "この設定はアプリ内の画像アップロード設定のみを有効にします。認識のサポートはモデル自体に依存しますので、そのモデルの視覚認識機能の可用性を自分でテストしてください",
           "title": "視覚認識をサポート"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/画像",
+        "inputCharts": "${{amount}}/M 文字",
+        "inputMinutes": "${{amount}}/分",
+        "inputTokens": "入力 ${{amount}}/M",
+        "outputTokens": "出力 ${{amount}}/M"
+      },
+      "releasedAt": "リリース日: {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "無効",
+      "enabled": "有効",
+      "enabledActions": {
+        "disableAll": "すべて無効にする",
+        "enableAll": "すべて有効にする",
+        "sort": "カスタムモデルの並べ替え"
+      },
+      "enabledEmpty": "有効なモデルはありません。下のリストからお気に入りのモデルを有効にしてください〜",
+      "fetcher": {
+        "clear": "取得したモデルをクリア",
+        "fetch": "モデルリストを取得",
+        "fetching": "モデルリストを取得中...",
+        "latestTime": "最終更新日時：{{time}}",
+        "noLatestTime": "まだリストを取得していません"
+      },
+      "search": "モデルを検索...",
+      "searchResult": "{{count}} 個のモデルが見つかりました",
+      "title": "モデルリスト",
+      "total": "利用可能なモデルは合計 {{count}} 件です"
+    },
+    "searchNotFound": "検索結果が見つかりませんでした"
   },
-  "searchNotFound": "検索結果が見つかりません",
   "sortModal": {
     "success": "ソートが更新されました",
     "title": "カスタムソート",

@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Non attivato",
-    "enabled": "Attivato",
-    "enabledActions": {
-      "disableAll": "Disabilita tutto",
-      "enableAll": "Abilita tutto",
-      "sort": "Ordinamento modelli personalizzati"
-    },
-    "enabledEmpty": "Nessun modello attivato, attiva i modelli desiderati dalla lista qui sotto~",
-    "search": "Cerca modelli...",
-    "searchResult": "Trovati {{count}} modelli"
+    "title": {
+      "disabled": "Fornitore non attivato",
+      "enabled": "Fornitore attivato"
+    }
   },
   "menu": {
     "addCustomProvider": "Aggiungi fornitore personalizzato",
@@ -264,10 +258,39 @@
           "extra": "Questa configurazione abiliterà solo la configurazione di caricamento immagini nell'app, la disponibilità di riconoscimento dipende interamente dal modello stesso, testare autonomamente la disponibilità di riconoscimento visivo di questo modello.",
           "title": "Supporto per riconoscimento visivo"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Immagine",
+        "inputCharts": "${{amount}}/M caratteri",
+        "inputMinutes": "${{amount}}/minuti",
+        "inputTokens": "Ingresso ${{amount}}/M",
+        "outputTokens": "Uscita ${{amount}}/M"
+      },
+      "releasedAt": "Rilasciato il {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Non attivato",
+      "enabled": "Attivato",
+      "enabledActions": {
+        "disableAll": "Disattiva tutto",
+        "enableAll": "Attiva tutto",
+        "sort": "Ordinamento modelli personalizzato"
+      },
+      "enabledEmpty": "Nessun modello attivato, attiva i modelli desiderati dall'elenco qui sotto~",
+      "fetcher": {
+        "clear": "Cancella i modelli recuperati",
+        "fetch": "Recupera l'elenco dei modelli",
+        "fetching": "Recupero dell'elenco dei modelli in corso...",
+        "latestTime": "Ultimo aggiornamento: {{time}}",
+        "noLatestTime": "Nessun elenco recuperato finora"
+      },
+      "search": "Cerca modelli...",
+      "searchResult": "Trovati {{count}} modelli",
+      "title": "Elenco dei modelli",
+      "total": "Totale di {{count}} modelli disponibili"
+    },
+    "searchNotFound": "Nessun risultato trovato"
   },
-  "searchNotFound": "Nessun risultato trovato",
   "sortModal": {
     "success": "Ordinamento aggiornato con successo",
     "title": "Ordinamento personalizzato",

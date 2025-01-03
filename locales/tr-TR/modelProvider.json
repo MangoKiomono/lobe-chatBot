@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Devre Dışı",
-    "enabled": "Aktif",
-    "enabledActions": {
-      "disableAll": "Hepsini Devre Dışı Bırak",
-      "enableAll": "Hepsini Aktif Et",
-      "sort": "Özel Model Sıralaması"
-    },
-    "enabledEmpty": "Aktif model yok, lütfen aşağıdaki listeden beğendiğiniz modeli etkinleştirin~",
-    "search": "Model ara...",
-    "searchResult": "{{count}} model bulundu"
+    "title": {
+      "disabled": "Hizmet sağlayıcı devre dışı",
+      "enabled": "Hizmet sağlayıcı etkin"
+    }
   },
   "menu": {
     "addCustomProvider": "Özel Hizmet Sağlayıcı Ekle",
@@ -264,10 +258,39 @@
           "extra": "Bu yapılandırma yalnızca uygulamadaki resim yükleme yapılandırmasını açacaktır, tanıma desteği tamamen modele bağlıdır, lütfen bu modelin görsel tanıma yeteneğini test edin.",
           "title": "Görsel Tanımayı Destekle"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Resim",
+        "inputCharts": "${{amount}}/M Karakter",
+        "inputMinutes": "${{amount}}/Dakika",
+        "inputTokens": "Girdi ${{amount}}/M",
+        "outputTokens": "Çıktı ${{amount}}/M"
+      },
+      "releasedAt": "Yayınlanma tarihi: {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Devre dışı",
+      "enabled": "Etkin",
+      "enabledActions": {
+        "disableAll": "Hepsini devre dışı bırak",
+        "enableAll": "Hepsini etkinleştir",
+        "sort": "Özel model sıralaması"
+      },
+      "enabledEmpty": "Etkin model yok, lütfen aşağıdaki listeden beğendiğiniz modeli etkinleştirin~",
+      "fetcher": {
+        "clear": "Alınan modelleri temizle",
+        "fetch": "Model listesini al",
+        "fetching": "Model listesi alınıyor...",
+        "latestTime": "Son güncelleme zamanı: {{time}}",
+        "noLatestTime": "Henüz liste alınmadı"
+      },
+      "search": "Model ara...",
+      "searchResult": "{{count}} model bulundu",
+      "title": "Model Listesi",
+      "total": "Toplam {{count}} adet model mevcut"
+    },
+    "searchNotFound": "Arama sonuçları bulunamadı"
   },
-  "searchNotFound": "Arama sonuçları bulunamadı",
   "sortModal": {
     "success": "Sıralama güncellemesi başarılı",
     "title": "Özel Sıralama",

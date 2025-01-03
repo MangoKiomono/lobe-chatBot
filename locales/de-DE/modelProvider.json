@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Nicht aktiviert",
-    "enabled": "Aktiviert",
-    "enabledActions": {
-      "disableAll": "Alle deaktivieren",
-      "enableAll": "Alle aktivieren",
-      "sort": "Benutzerdefinierte Modellsortierung"
-    },
-    "enabledEmpty": "Derzeit keine aktivierten Modelle. Bitte aktivieren Sie Ihre bevorzugten Modelle aus der Liste unten~",
-    "search": "Modelle suchen...",
-    "searchResult": "Es wurden {{count}} Modelle gefunden"
+    "title": {
+      "disabled": "Dienstanbieter nicht aktiviert",
+      "enabled": "Dienstanbieter aktiviert"
+    }
   },
   "menu": {
     "addCustomProvider": "Benutzerdefinierten Anbieter hinzufügen",
@@ -264,10 +258,39 @@
           "extra": "Diese Konfiguration aktiviert nur die Bild-Upload-Funktionalität in der Anwendung. Ob die Erkennung unterstützt wird, hängt vollständig vom Modell selbst ab. Bitte testen Sie die Verwendbarkeit der visuellen Erkennungsfähigkeit des Modells selbst.",
           "title": "Visuelle Erkennung unterstützen"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Bild",
+        "inputCharts": "${{amount}}/M Zeichen",
+        "inputMinutes": "${{amount}}/Minuten",
+        "inputTokens": "Eingabe ${{amount}}/M",
+        "outputTokens": "Ausgabe ${{amount}}/M"
+      },
+      "releasedAt": "Veröffentlicht am {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Nicht aktiviert",
+      "enabled": "Aktiviert",
+      "enabledActions": {
+        "disableAll": "Alle deaktivieren",
+        "enableAll": "Alle aktivieren",
+        "sort": "Benutzerdefinierte Modellreihenfolge"
+      },
+      "enabledEmpty": "Keine aktivierten Modelle vorhanden, bitte aktivieren Sie Ihre bevorzugten Modelle aus der Liste unten~",
+      "fetcher": {
+        "clear": "Abgerufene Modelle löschen",
+        "fetch": "Modellliste abrufen",
+        "fetching": "Modellliste wird abgerufen...",
+        "latestTime": "Letzte Aktualisierung: {{time}}",
+        "noLatestTime": "Liste wurde noch nicht abgerufen"
+      },
+      "search": "Modelle suchen...",
+      "searchResult": "{{count}} Modelle gefunden",
+      "title": "Modellliste",
+      "total": "Insgesamt {{count}} verfügbare Modelle"
+    },
+    "searchNotFound": "Keine Suchergebnisse gefunden"
   },
-  "searchNotFound": "Keine Suchergebnisse gefunden",
   "sortModal": {
     "success": "Sortierung erfolgreich aktualisiert",
     "title": "Benutzerdefinierte Sortierung",

@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Nieaktywny",
-    "enabled": "Aktywny",
-    "enabledActions": {
-      "disableAll": "Wyłącz wszystkie",
-      "enableAll": "Włącz wszystkie",
-      "sort": "Niestandardowe sortowanie modeli"
-    },
-    "enabledEmpty": "Brak aktywnych modeli, proszę włączyć ulubione modele z poniższej listy~",
-    "search": "Szukaj modeli...",
-    "searchResult": "Znaleziono {{count}} modeli"
+    "title": {
+      "disabled": "Usługa nieaktywna",
+      "enabled": "Usługa aktywna"
+    }
   },
   "menu": {
     "addCustomProvider": "Dodaj niestandardowego dostawcę",
@@ -264,10 +258,39 @@
           "extra": "Ta konfiguracja włączy tylko możliwość przesyłania obrazów w aplikacji, czy model obsługuje rozpoznawanie zależy od samego modelu, proszę samodzielnie przetestować dostępność rozpoznawania wizualnego tego modelu.",
           "title": "Wsparcie dla rozpoznawania wizualnego"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/obraz",
+        "inputCharts": "${{amount}}/M znaków",
+        "inputMinutes": "${{amount}}/minut",
+        "inputTokens": "Wprowadzenie ${{amount}}/M",
+        "outputTokens": "Wyjście ${{amount}}/M"
+      },
+      "releasedAt": "Wydano {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Nieaktywne",
+      "enabled": "Aktywne",
+      "enabledActions": {
+        "disableAll": "Dezaktywuj wszystkie",
+        "enableAll": "Aktywuj wszystkie",
+        "sort": "Sortowanie modeli niestandardowych"
+      },
+      "enabledEmpty": "Brak aktywnych modeli, aktywuj ulubione modele z poniższej listy~",
+      "fetcher": {
+        "clear": "Wyczyść pobrane modele",
+        "fetch": "Pobierz listę modeli",
+        "fetching": "Pobieranie listy modeli...",
+        "latestTime": "Ostatnia aktualizacja: {{time}}",
+        "noLatestTime": "Lista nie została jeszcze pobrana"
+      },
+      "search": "Szukaj modeli...",
+      "searchResult": "Znaleziono {{count}} modeli",
+      "title": "Lista modeli",
+      "total": "Łącznie dostępnych modeli: {{count}}"
+    },
+    "searchNotFound": "Nie znaleziono wyników wyszukiwania"
   },
-  "searchNotFound": "Nie znaleziono wyników wyszukiwania",
   "sortModal": {
     "success": "Aktualizacja sortowania zakończona sukcesem",
     "title": "Niestandardowe sortowanie",

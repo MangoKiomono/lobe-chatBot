@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Disabled",
-    "enabled": "Enabled",
-    "enabledActions": {
-      "disableAll": "Disable All",
-      "enableAll": "Enable All",
-      "sort": "Custom Model Sort"
-    },
-    "enabledEmpty": "No enabled models at the moment, please enable your desired models from the list below~",
-    "search": "Search Models...",
-    "searchResult": "Found {{count}} models"
+    "title": {
+      "disabled": "Disabled",
+      "enabled": "Enabled"
+    }
   },
   "menu": {
     "addCustomProvider": "Add Custom Provider",
@@ -262,15 +256,44 @@
         },
         "vision": {
           "extra": "This configuration will only enable image upload capabilities in the application. Whether recognition is supported depends entirely on the model itself. Please test the visual recognition capabilities of the model yourself.",
-          "title": "Support Visual Recognition"
+          "title": "Support Vision"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Image",
+        "inputCharts": "${{amount}}/M Characters",
+        "inputMinutes": "${{amount}}/Minutes",
+        "inputTokens": "Input ${{amount}}/M",
+        "outputTokens": "Output ${{amount}}/M"
+      },
+      "releasedAt": "Released at {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Disabled",
+      "enabled": "Enabled",
+      "enabledActions": {
+        "disableAll": "Disable All",
+        "enableAll": "Enable All",
+        "sort": "Custom Model Sorting"
+      },
+      "enabledEmpty": "No enabled models available. Please enable your preferred models from the list below~",
+      "fetcher": {
+        "clear": "Clear fetched models",
+        "fetch": "Fetch models",
+        "fetching": "Fetching model list...",
+        "latestTime": "Last updated: {{time}}",
+        "noLatestTime": "Model list not yet fetched"
+      },
+      "search": "Search Models...",
+      "searchResult": "{{count}} models found",
+      "title": "Model List",
+      "total": "{{count}} models available"
+    },
+    "searchNotFound": "No search results found"
   },
-  "searchNotFound": "No search results found",
   "sortModal": {
     "success": "Sort update successful",
-    "title": "Custom Sort",
+    "title": "Custom Order",
     "update": "Update"
   },
   "updateAiProvider": {

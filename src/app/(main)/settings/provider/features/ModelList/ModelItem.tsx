@@ -8,10 +8,14 @@ import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { ModelInfoTags } from '@/components/ModelSelect';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { aiModelSelectors, useAiInfraStore } from '@/store/aiInfra';
 import { AiModelSourceEnum, AiProviderModelListItem, ChatModelPricing } from '@/types/aiModel';
 
 import ModelConfigModal from './ModelConfigModal';
+
+const f = (number: number | undefined, text: string) =>
+  typeof number !== 'undefined' ? text : undefined;
 
 export const useStyles = createStyles(({ css, token, cx }) => {
   const config = css`
@@ -67,6 +71,7 @@ const ModelItem = memo<ModelItemProps>(
     source,
     contextWindowTokens,
     abilities,
+    type,
   }) => {
     const { styles } = useStyles();
     const { t } = useTranslation(['modelProvider', 'components', 'models']);
@@ -83,14 +88,155 @@ const ModelItem = memo<ModelItemProps>(
 
     const [checked, setChecked] = useState(enabled);
     const [showConfig, setShowConfig] = useState(false);
+
+    const formatPricing = (): string[] => {
+      switch (type) {
+        case 'chat': {
+          return [
+            f(
+              pricing?.input,
+              t('providerModels.item.pricing.inputTokens', { amount: pricing?.input }),
+            ),
+            f(
+              pricing?.output,
+              t('providerModels.item.pricing.outputTokens', { amount: pricing?.output }),
+            ),
+          ].filter(Boolean) as string[];
+        }
+        case 'embedding': {
+          return [
+            f(
+              pricing?.input,
+              t('providerModels.item.pricing.inputTokens', { amount: pricing?.input }),
+            ),
+          ].filter(Boolean) as string[];
+        }
+        case 'tts': {
+          return [
+            f(
+              pricing?.input,
+              t('providerModels.item.pricing.inputCharts', { amount: pricing?.input }),
+            ),
+          ].filter(Boolean) as string[];
+        }
+        case 'stt': {
+          return [
+            f(
+              pricing?.input,
+              t('providerModels.item.pricing.inputMinutes', { amount: pricing?.input }),
+            ),
+          ].filter(Boolean) as string[];
+        }
+
+        case 'image': {
+          return [];
+        }
+
+        default: {
+          return [];
+        }
+      }
+    };
+
     const content = [
-      releasedAt && `发布于${releasedAt}`,
-      typeof pricing?.input !== 'undefined' ? `输入 $${pricing?.input} /M` : undefined,
-      typeof pricing?.output !== 'undefined' ? `输出 $${pricing?.output} /M` : undefined,
+      releasedAt && t('providerModels.item.releasedAt', { releasedAt }),
+      ...formatPricing(),
     ].filter(Boolean) as string[];
     const { message, modal } = App.useApp();
 
-    return (
+    const isMobile = useIsMobile();
+
+    const dom = isMobile ? (
+      <Flexbox
+        align={'center'}
+        gap={12}
+        horizontal
+        justify={'space-between'}
+        padding={'12px 6px'}
+        width={'100%'}
+      >
+        <Flexbox align={'center'} flex={1} gap={16} horizontal style={{ minWidth: 0 }}>
+          <ModelIcon model={id} size={32} />
+          <Flexbox flex={1} gap={4} style={{ minWidth: 0 }}>
+            <Flexbox align={'center'} gap={8} horizontal>
+              {displayName || id}
+              <Flexbox align={'center'} gap={8} horizontal>
+                <ModelInfoTags
+                  placement={'top'}
+                  {...abilities}
+                  contextWindowTokens={contextWindowTokens}
+                />
+                {/*{removed && (*/}
+                {/*  <Tooltip*/}
+                {/*    overlayStyle={{ maxWidth: 300 }}*/}
+                {/*    placement={'top'}*/}
+                {/*    style={{ pointerEvents: 'none' }}*/}
+                {/*    title={t('ModelSelect.removed')}*/}
+                {/*  >*/}
+                {/*    <ActionIcon icon={Recycle} style={{ color: theme.colorWarning }} />*/}
+                {/*  </Tooltip>*/}
+                {/*)}*/}
+              </Flexbox>
+            </Flexbox>
+            <div>
+              <Tag
+                onClick={() => {
+                  copyToClipboard(id);
+                }}
+                style={{ cursor: 'pointer', marginRight: 0 }}
+              >
+                {id}
+              </Tag>
+            </div>
+          </Flexbox>
+        </Flexbox>
+        <Flexbox align={'center'} gap={4} horizontal>
+          <Flexbox className={styles.config} horizontal style={{ opacity: 1 }}>
+            <ActionIcon
+              icon={LucidePencil}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowConfig(true);
+              }}
+              size={'small'}
+              title={t('providerModels.item.config')}
+            />
+            {source !== AiModelSourceEnum.Builtin && (
+              <ActionIcon
+                icon={TrashIcon}
+                onClick={() => {
+                  modal.confirm({
+                    centered: true,
+                    okButtonProps: {
+                      danger: true,
+                      type: 'primary',
+                    },
+                    onOk: async () => {
+                      await removeAiModel(id, activeAiProvider!);
+                      message.success(t('providerModels.item.delete.success'));
+                    },
+                    title: t('providerModels.item.delete.confirm', {
+                      displayName: displayName || id,
+                    }),
+                  });
+                }}
+                size={'small'}
+                title={t('providerModels.item.delete.title')}
+              />
+            )}
+          </Flexbox>
+          <Switch
+            checked={checked}
+            loading={isModelLoading}
+            onChange={async (e) => {
+              setChecked(e);
+              await toggleModelEnabled({ enabled: e, id, source });
+            }}
+            size={'small'}
+          />
+        </Flexbox>
+      </Flexbox>
+    ) : (
       <Flexbox
         align={'center'}
         className={styles.container}
@@ -147,7 +293,6 @@ const ModelItem = memo<ModelItemProps>(
                   />
                 )}
               </Flexbox>
-              {showConfig && <ModelConfigModal id={id} open={showConfig} setOpen={setShowConfig} />}
             </Flexbox>
             <Flexbox align={'baseline'} gap={8} horizontal>
               {content.length > 0 && (
@@ -187,6 +332,13 @@ const ModelItem = memo<ModelItemProps>(
           />
         </Flexbox>
       </Flexbox>
+    );
+
+    return (
+      <>
+        {dom}
+        {showConfig && <ModelConfigModal id={id} open={showConfig} setOpen={setShowConfig} />}
+      </>
     );
   },
 );

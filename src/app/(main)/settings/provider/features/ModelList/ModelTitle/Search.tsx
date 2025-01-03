@@ -1,5 +1,5 @@
 import { Icon } from '@lobehub/ui';
-import { Input } from 'antd';
+import { Input, InputProps } from 'antd';
 import { SearchIcon } from 'lucide-react';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,9 +7,10 @@ import { useTranslation } from 'react-i18next';
 interface SearchProps {
   onChange: (value: string) => void;
   value: string;
+  variant?: InputProps['variant'];
 }
 
-const Search = memo<SearchProps>(({ value, onChange }) => {
+const Search = memo<SearchProps>(({ value, onChange, variant }) => {
   const { t } = useTranslation('modelProvider');
   const [keyword, setValue] = useState<string>(value);
 
@@ -29,6 +30,7 @@ const Search = memo<SearchProps>(({ value, onChange }) => {
       prefix={<Icon icon={SearchIcon} />}
       size={'small'}
       value={keyword}
+      variant={variant}
     />
   );
 });

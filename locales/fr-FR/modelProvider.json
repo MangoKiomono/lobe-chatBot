@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Non activé",
-    "enabled": "Activé",
-    "enabledActions": {
-      "disableAll": "Désactiver tout",
-      "enableAll": "Activer tout",
-      "sort": "Tri des modèles personnalisé"
-    },
-    "enabledEmpty": "Aucun modèle activé pour le moment, veuillez activer les modèles qui vous intéressent dans la liste ci-dessous~",
-    "search": "Rechercher des modèles...",
-    "searchResult": "Trouvé {{count}} modèles"
+    "title": {
+      "disabled": "Fournisseur non activé",
+      "enabled": "Fournisseur activé"
+    }
   },
   "menu": {
     "addCustomProvider": "Ajouter un fournisseur personnalisé",
@@ -264,10 +258,39 @@
           "extra": "Cette configuration n'activera que la configuration de téléchargement d'images dans l'application, la prise en charge de la reconnaissance dépend entièrement du modèle lui-même, veuillez tester la disponibilité des capacités de reconnaissance visuelle de ce modèle.",
           "title": "Reconnaissance visuelle prise en charge"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/image",
+        "inputCharts": "${{amount}}/M caractères",
+        "inputMinutes": "${{amount}}/minutes",
+        "inputTokens": "Entrée ${{amount}}/M",
+        "outputTokens": "Sortie ${{amount}}/M"
+      },
+      "releasedAt": "Publié le {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Non activé",
+      "enabled": "Activé",
+      "enabledActions": {
+        "disableAll": "Désactiver tout",
+        "enableAll": "Activer tout",
+        "sort": "Trier les modèles personnalisés"
+      },
+      "enabledEmpty": "Aucun modèle activé pour le moment, veuillez activer vos modèles préférés dans la liste ci-dessous~",
+      "fetcher": {
+        "clear": "Effacer les modèles récupérés",
+        "fetch": "Récupérer la liste des modèles",
+        "fetching": "Récupération de la liste des modèles en cours...",
+        "latestTime": "Dernière mise à jour : {{time}}",
+        "noLatestTime": "Aucune liste récupérée pour le moment"
+      },
+      "search": "Rechercher des modèles...",
+      "searchResult": "Trouvé {{count}} modèle(s)",
+      "title": "Liste des modèles",
+      "total": "Un total de {{count}} modèles disponibles"
+    },
+    "searchNotFound": "Aucun résultat trouvé"
   },
-  "searchNotFound": "Aucun résultat trouvé",
   "sortModal": {
     "success": "Mise à jour du tri réussie",
     "title": "Tri personnalisé",

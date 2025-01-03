@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "未啟用",
-    "enabled": "已啟用",
-    "enabledActions": {
-      "disableAll": "全部禁用",
-      "enableAll": "全部啟用",
-      "sort": "自定義模型排序"
-    },
-    "enabledEmpty": "暫無啟用模型，請從下方列表中啟用心儀的模型吧~",
-    "search": "搜索模型...",
-    "searchResult": "搜索到 {{count}} 個模型"
+    "title": {
+      "disabled": "未啟用服務商",
+      "enabled": "已啟用服務商"
+    }
   },
   "menu": {
     "addCustomProvider": "添加自定義服務商",
@@ -264,10 +258,39 @@
           "extra": "此配置將僅開啟應用中的圖片上傳配置，是否支持識別完全取決於模型本身，請自行測試該模型的視覺識別能力可用性",
           "title": "支持視覺識別"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/圖片",
+        "inputCharts": "${{amount}}/M 字符",
+        "inputMinutes": "${{amount}}/分鐘",
+        "inputTokens": "輸入 ${{amount}}/M",
+        "outputTokens": "輸出 ${{amount}}/M"
+      },
+      "releasedAt": "發佈於{{releasedAt}}"
+    },
+    "list": {
+      "disabled": "未啟用",
+      "enabled": "已啟用",
+      "enabledActions": {
+        "disableAll": "全部禁用",
+        "enableAll": "全部啟用",
+        "sort": "自訂模型排序"
+      },
+      "enabledEmpty": "暫無啟用模型，請從下方列表中啟用心儀的模型吧~",
+      "fetcher": {
+        "clear": "清除取得的模型",
+        "fetch": "取得模型列表",
+        "fetching": "正在取得模型列表...",
+        "latestTime": "上次更新時間：{{time}}",
+        "noLatestTime": "尚未取得列表"
+      },
+      "search": "搜尋模型...",
+      "searchResult": "搜尋到 {{count}} 個模型",
+      "title": "模型列表",
+      "total": "共 {{count}} 個模型可用"
+    },
+    "searchNotFound": "未找到搜尋結果"
   },
-  "searchNotFound": "未找到搜索結果",
   "sortModal": {
     "success": "排序更新成功",
     "title": "自定義排序",

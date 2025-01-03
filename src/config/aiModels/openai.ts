@@ -54,6 +54,7 @@ export const openaiChatModels: AIChatModelCard[] = [
       input: 0.15,
       output: 0.6,
     },
+    releasedAt: '2024-07-18',
     type: 'chat',
   },
   {
@@ -89,6 +90,7 @@ export const openaiChatModels: AIChatModelCard[] = [
       input: 2.5,
       output: 10,
     },
+    releasedAt: '2024-05-13',
     type: 'chat',
   },
   {

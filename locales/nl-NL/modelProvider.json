@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Niet ingeschakeld",
-    "enabled": "Ingeschakeld",
-    "enabledActions": {
-      "disableAll": "Alle uitschakelen",
-      "enableAll": "Alle inschakelen",
-      "sort": "Aangepaste model sortering"
-    },
-    "enabledEmpty": "Er zijn momenteel geen ingeschakelde modellen, schakel de modellen hieronder in die je leuk vindt~",
-    "search": "Zoek modellen...",
-    "searchResult": "Gevonden {{count}} modellen"
+    "title": {
+      "disabled": "Dienstverlener niet ingeschakeld",
+      "enabled": "Dienstverlener ingeschakeld"
+    }
   },
   "menu": {
     "addCustomProvider": "Voeg aangepaste provider toe",
@@ -264,10 +258,39 @@
           "extra": "Deze configuratie zal alleen de afbeeldinguploadcapaciteit in de applicatie inschakelen, of herkenning wordt ondersteund hangt volledig af van het model zelf, test de beschikbaarheid van de visuele herkenningscapaciteit van dit model zelf.",
           "title": "Ondersteuning voor visuele herkenning"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/Afbeelding",
+        "inputCharts": "${{amount}}/M Tekens",
+        "inputMinutes": "${{amount}}/Minuten",
+        "inputTokens": "Invoer ${{amount}}/M",
+        "outputTokens": "Uitvoer ${{amount}}/M"
+      },
+      "releasedAt": "Uitgebracht op {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Niet ingeschakeld",
+      "enabled": "Ingeschakeld",
+      "enabledActions": {
+        "disableAll": "Alle uitschakelen",
+        "enableAll": "Alle inschakelen",
+        "sort": "Aangepaste model sortering"
+      },
+      "enabledEmpty": "Geen ingeschakelde modellen, schakel de modellen hieronder in die je leuk vindt~",
+      "fetcher": {
+        "clear": "Verwijder de opgehaalde modellen",
+        "fetch": "Haal modellenlijst op",
+        "fetching": "Bezig met het ophalen van de modellenlijst...",
+        "latestTime": "Laatste update tijd: {{time}}",
+        "noLatestTime": "Lijst nog niet opgehaald"
+      },
+      "search": "Zoek modellen...",
+      "searchResult": "Gevonden {{count}} modellen",
+      "title": "Modellenlijst",
+      "total": "In totaal {{count}} modellen beschikbaar"
+    },
+    "searchNotFound": "Geen zoekresultaten gevonden"
   },
-  "searchNotFound": "Geen zoekresultaten gevonden",
   "sortModal": {
     "success": "Sortering succesvol bijgewerkt",
     "title": "Aangepaste sortering",

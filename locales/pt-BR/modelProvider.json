@@ -116,16 +116,10 @@
     }
   },
   "list": {
-    "disabled": "Desativado",
-    "enabled": "Ativado",
-    "enabledActions": {
-      "disableAll": "Desativar Todos",
-      "enableAll": "Ativar Todos",
-      "sort": "Ordenação de Modelos Personalizados"
-    },
-    "enabledEmpty": "Nenhum modelo ativado no momento, por favor, ative os modelos desejados na lista abaixo~",
-    "search": "Pesquisar Modelos...",
-    "searchResult": "Encontrados {{count}} modelos"
+    "title": {
+      "disabled": "Fornecedor não habilitado",
+      "enabled": "Fornecedor habilitado"
+    }
   },
   "menu": {
     "addCustomProvider": "Adicionar Provedor Personalizado",
@@ -264,10 +258,39 @@
           "extra": "Esta configuração apenas habilitará a configuração de upload de imagens no aplicativo, se o reconhecimento for suportado depende do modelo em si, teste a capacidade de reconhecimento visual desse modelo.",
           "title": "Suporte a Reconhecimento Visual"
         }
-      }
-    }
+      },
+      "pricing": {
+        "image": "${{amount}}/imagem",
+        "inputCharts": "${{amount}}/M caracteres",
+        "inputMinutes": "${{amount}}/minuto",
+        "inputTokens": "Entrada ${{amount}}/M",
+        "outputTokens": "Saída ${{amount}}/M"
+      },
+      "releasedAt": "Lançado em {{releasedAt}}"
+    },
+    "list": {
+      "disabled": "Não habilitado",
+      "enabled": "Habilitado",
+      "enabledActions": {
+        "disableAll": "Desabilitar todos",
+        "enableAll": "Habilitar todos",
+        "sort": "Ordenar modelos personalizados"
+      },
+      "enabledEmpty": "Nenhum modelo habilitado no momento, por favor habilite os modelos desejados na lista abaixo~",
+      "fetcher": {
+        "clear": "Limpar modelos obtidos",
+        "fetch": "Obter lista de modelos",
+        "fetching": "Obtendo lista de modelos...",
+        "latestTime": "Última atualização: {{time}}",
+        "noLatestTime": "Lista ainda não obtida"
+      },
+      "search": "Pesquisar modelos...",
+      "searchResult": "Encontrados {{count}} modelos",
+      "title": "Lista de Modelos",
+      "total": "Um total de {{count}} modelos disponíveis"
+    },
+    "searchNotFound": "Nenhum resultado encontrado"
   },
-  "searchNotFound": "Nenhum resultado encontrado",
   "sortModal": {
     "success": "Ordenação atualizada com sucesso",
     "title": "Ordenação Personalizada",
